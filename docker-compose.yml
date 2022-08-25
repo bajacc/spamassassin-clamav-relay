@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+  spamass-clamav-relay:
+    build: .
+    container_name: spamass-clamav-relay
+    ports:
+      - "10025:25"
+    environment:
+      - RELAY_HOST=[127.0.0.1]:11025
+      - SAHOME=/var/log/spamassassin/
+    tty: true
